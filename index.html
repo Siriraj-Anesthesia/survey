@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>
+    แบบประเมินโครงการพัฒนาระบบกระดานมอบหมายงานประจำวันแบบดิจิทัลสำหรับการบริการวิสัญญี
+  </title>
+
+  <style>
+    body {
+      font-family: Arial, "Noto Sans Thai", sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+      color: #222;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: auto;
+      background: #fff;
+      padding: 28px;
+      border-radius: 14px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      font-size: 26px;
+      line-height: 1.4;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .question {
+      margin-bottom: 24px;
+    }
+
+    .question-title {
+      font-weight: 600;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .hint {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 11px 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      background: #fff;
+    }
+
+    input[type="radio"] {
+      margin-right: 6px;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .section {
+      display: none;
+      margin-top: 30px;
+      padding-top: 24px;
+      border-top: 1px solid #ddd;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .required {
+      color: #c62828;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      font-size: 17px;
+      cursor: pointer;
+      background: #333;
+      color: white;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <h1>
+      แบบประเมินโครงการพัฒนาระบบกระดานมอบหมายงานประจำวันแบบดิจิทัล
+      สำหรับการบริการวิสัญญี
+    </h1>
+
+    <div class="description">
+      แบบสอบถามนี้ใช้เพื่อติดตามผลการใช้งาน
+      Smart Anesthesia Assignment Board
+      กรุณาตอบตามประสบการณ์ของท่านในช่วง
+      <strong>2 เดือนที่ผ่านมา</strong>
+    </div>
+
+    <form id="assignmeForm">
+
+      <!-- ================= ROLE ================= -->
+
+      <div class="question">
+        <div class="question-title">
+          ท่านใช้กระดานมอบหมายงานประจำวันแบบดิจิทัลในลักษณะใดเป็นหลัก
+          <span class="required">*</span>
+        </div>
+
+        <label>
+          <input
+            type="radio"
+            name="role"
+            value="viewer"
+            required
+          />
+          ดู/ตรวจสอบตารางงาน
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            name="role"
+            value="editor"
+          />
+          จัด/ลง/แก้ไขตารางงาน
+        </label>
+      </div>
+
+
+      <!-- ===================================================== -->
+      <!-- VIEWER SECTION -->
+      <!-- ===================================================== -->
+
+      <div id="viewerSection" class="section">
+
+        <div class="section-title">
+          สำหรับผู้ดู/ตรวจสอบตารางงาน
+        </div>
+
+        <!-- Viewer Q1 -->
+        <div class="question">
+          <div class="question-title">
+            1. ในช่วง 2 เดือนที่ผ่านมา
+            ท่านใช้กระดานมอบหมายงานประจำวันแบบดิจิทัลบ่อยแค่ไหน
+          </div>
+
+          <select name="viewer_frequency">
+            <option value="">-- กรุณาเลือก --</option>
+            <option value="daily">ทุกวัน</option>
+            <option value="3-4_per_week">3–4 วันต่อสัปดาห์</option>
+            <option value="1-2_per_week">1–2 วันต่อสัปดาห์</option>
+            <option value="less_than_weekly">น้อยกว่า 1 ครั้งต่อสัปดาห์</option>
+            <option value="not_used">ไม่ได้ใช้งาน</option>
+          </select>
+        </div>
+
+        <!-- Viewer Q2 -->
+        <div class="question">
+          <div class="question-title">
+            2. โดยทั่วไป
+            ท่านใช้เวลาประมาณกี่นาทีในการเปิดดูตารางและหาข้อมูลที่ต้องการ
+          </div>
+
+          <select name="viewer_access_time">
+            <option value="">-- กรุณาเลือก --</option>
+            <option value="less_than_1">น้อยกว่า 1 นาที</option>
+            <option value="1-5">1–5 นาที</option>
+            <option value="6-10">6–10 นาที</option>
+            <option value="more_than_10">มากกว่า 10 นาที</option>
+          </select>
+        </div>
+
+        <!-- Viewer Q3 -->
+        <div class="question">
+          <div class="question-title">
+            3. เมื่อเทียบกับวิธีเดิม
+            กระดานมอบหมายงานประจำวันแบบดิจิทัล
+            ช่วยให้ท่านดูตารางได้เร็วขึ้นแค่ไหน
+          </div>
+
+          <select name="viewer_speed">
+            <option value="">-- กรุณาเลือก --</option>
+            <option value="much_faster">เร็วขึ้นมาก</option>
+            <option value="slightly_faster">เร็วขึ้นเล็กน้อย</option>
+            <option value="same">ไม่ต่างจากเดิม</option>
+            <option value="slower">ช้าลง</option>
+            <option value="cannot_assess">ไม่สามารถประเมินได้</option>
+          </select>
+        </div>
+
+        <!-- Viewer Q4 -->
+        <div class="question">
+          <div class="question-title">
+            4. ในช่วง 2 เดือนที่ผ่านมา
+            ท่านพบข้อมูลการมอบหมายงานที่ไม่ถูกต้องบ่อยแค่ไหน
+          </div>
+
+          <div class="hint">
+            เช่น ไม่มีชื่อ ผิดคน ผิดห้อง หรือผิดจุดบริการ
+          </div>
+
+          <select name="viewer_assignment_error">
+            <option value="">-- กรุณาเลือก --</option>
+            <option value="none">ไม่พบ</option>
+            <option value="1-2_per_month">1–2 ครั้งต่อเดือน</option>
+            <option value="1-2_per_week">1–2 ครั้งต่อสัปดาห์</option>
+            <option value="3-4_per_week">3–4 ครั้งต่อสัปดาห์</option>
+            <option value="daily">พบทุกวัน</option>
+            <option value="unsure">ไม่แน่ใจ</option>
+          </select>
+        </div>
+
+        <!-- Viewer Q5 -->
+        <div class="question">
+          <div class="question-title">
+            5. กระดานมอบหมายงานประจำวันแบบดิจิทัล
+            ช่วยลดการโทรหรือส่งข้อความเพื่อถามตารางงานหรือไม่
+          </div>
+
+          <select name="viewer_reduce_contact">
+            <option value="">-- กรุณาเลือก --</option>
+            <option value="a_lot">ช่วยมาก</option>
+            <option value="moderately">ช่วยพอสมควร</option>
+            <option value="slightly">ช่วยเล็กน้อย</option>
+            <option value="not_at_all">ไม่ช่วย</option>
+            <option value="unsure">ไม่แน่ใจ</option>
+          </select>
+        </div>
+
+        <!-- Viewer Q6 -->
+        <div class="question">
+          <div class="question-title">
+            6. โดยรวม
+            ท่านรู้สึกว่ากระดานมอบหมายงานประจำวันแบบดิจิทัลใช้งานง่ายหรือไม่
+          </div>
+
+          <select name="viewer_usability">
+            <option value="">-- กรุณาเลือก --</option>
+            <option value="very_easy">ง่ายมาก</option>
+            <option value="fairly_easy">ค่อนข้างง่าย</option>
+            <option value="neutral">ปานกลาง</option>
+            <option value="fairly_difficult">ค่อนข้างยาก</option>
+            <option value="very_difficult">ยากมาก</option>
+          </select>
+        </div>
+
+        <!-- Viewer Q7 -->
+        <div class="question">
+          <div class="question-title">
+            7. โดยรวม
+            ท่านคิดว่าควรใช้งานกระดานมอบหมายงานประจำวันแบบดิจิทัลต่อไปหรือไม่
+          </div>
+
+          <select name="viewer_continue">
+            <option value="">-- กรุณาเลือก --</option>
+
+            <option value="continue_as_is">
+              ควรใช้ต่อ ระบบปัจจุบันเหมาะสมดีแล้ว
+            </option>
+
+            <option value="continue_minor_improvement">
+              ควรใช้ต่อ แต่ควรปรับปรุงเล็กน้อย
+            </option>
+
+            <option value="continue_major_improvement">
+              ควรใช้ต่อ แต่ควรปรับปรุงอย่างมาก
+            </option>
+
+            <option value="return_old_method">
+              ไม่ควรใช้ต่อ และควรกลับไปใช้วิธีการมอบหมายงานแบบเดิม
+            </option>
+
+            <option value="use_other_method">
+              ไม่ควรใช้ต่อ แต่ควรหาวิธีการอื่นแทนระบบเดิม
+            </option>
+          </select>
+        </div>
+
+        <!-- Viewer Q8 -->
+        <div class="question">
+          <div class="question-title">
+            8. โดยรวม
+            ท่านพึงพอใจกับกระดานมอบหมายงานประจำวันแบบดิจิทัลในระดับใด
+          </div>
+
+          <select name="viewer_satisfaction">
+            <option value="">-- กรุณาเลือก --</option>
+            <option value="very_good">ดีมาก</option>
+            <option value="good">ดี</option>
+            <option value="moderate">ปานกลาง</option>
+            <option value="low">น้อย</option>
+            <option value="very_low">น้อยมาก</option>
+          </select>
+        </div>
+
+        <!-- Viewer Q9 -->
+        <div class="question">
+          <div class="question-title">
+            9. ข้อเสนอแนะเพิ่มเติม
+          </div>
+
+          <div class="hint">
+            เช่น ปัญหาที่พบ สิ่งที่อยากให้ปรับปรุง
+            หรือฟังก์ชันที่อยากให้เพิ่ม
+          </div>
+
+          <textarea
+            name="viewer_feedback"
+            placeholder="ข้อเสนอแนะเพิ่มเติม (ถ้ามี)"
+          ></textarea>
+        </div>
+
+      </div>
+
+
+      <!-- ===================================================== -->
+      <!-- EDITOR SECTION -->
+      <!-- ===================================================== -->
+
+      <div id="editorSection" class="section">
+
+        <div class="section-title">
+          สำหรับผู้จัด/ลง/แก้ไขตารางงาน
+        </div>
+
+        <!-- Editor Q1 -->
+        <div class="question">
+          <div class="question-title">
+            1. เมื่อเทียบกับวิธีเดิม
+            ท่านคิดว่ากระดานมอบหมายงานประจำวันแบบดิจิทัล
+            ช่วยลดเวลาที่ใช้ในการจัดหรือแก้ไขตารางประมาณเท่าใด
+          </div>
+
+          <select name="editor_time_reduction">
+            <option value="">-- กรุณาเลือก --</option>
+            <option value="no_reduction">ไม่ลดลง / ใช้เวลามากขึ้น</option>
+            <option value="less_than_20">ลดลงน้อยกว่า 20%</option>
+            <option value="20-49">ลดลง 20–49%</option>
+            <option value="50_or_more">ลดลง 50% ขึ้นไป</option>
+            <option value="cannot_assess">ไม่สามารถประเมินได้</option>
+          </select>
+        </div>
+
+        <!-- Editor Q2 -->
+        <div class="question">
+          <div class="question-title">
+            2. ในช่วง 2 เดือนที่ผ่านมา
+            ท่านพบข้อมูลการมอบหมายงานที่ไม่ถูกต้องบ่อยแค่ไหน
+          </div>
+
+          <div class="hint">
+            เช่น ไม่มีชื่อ ผิดคน ผิดห้อง หรือผิดจุดบริการ
+          </div>
+
+          <select name="editor_assignment_error">
+            <option value="">-- กรุณาเลือก --</option>
+            <option value="none">ไม่พบ</option>
+            <option value="1-2_per_month">1–2 ครั้งต่อเดือน</option>
+            <option value="1-2_per_week">1–2 ครั้งต่อสัปดาห์</option>
+            <option value="3-4_per_week">3–4 ครั้งต่อสัปดาห์</option>
+            <option value="daily">พบทุกวัน</option>
+            <option value="unsure">ไม่แน่ใจ</option>
+          </select>
+        </div>
+
+        <!-- Editor Q3 -->
+        <div class="question">
+          <div class="question-title">
+            3. ในช่วง 2 เดือนที่ผ่านมา
+            ท่านพบปัญหาทางเทคนิคของระบบบ่อยแค่ไหน
+          </div>
+
+          <div class="hint">
+            เช่น เข้าไม่ได้ ลิงก์เสีย ข้อมูลไม่แสดง
+            ระบบค้าง หรือฟังก์ชันทำงานผิดปกติ
+          </div>
+
+          <select name="editor_technical_error">
+            <option value="">-- กรุณาเลือก --</option>
+            <option value="none">ไม่พบ</option>
+            <option value="1-2">1–2 ครั้ง</option>
+            <option value="3-4">3–4 ครั้ง</option>
+            <option value="5-7">5–7 ครั้ง</option>
+            <option value="8_or_more">8 ครั้งขึ้นไป</option>
+            <option value="unsure">ไม่แน่ใจ</option>
+          </select>
+        </div>
+
+        <!-- Editor Q4 -->
+        <div class="question">
+          <div class="question-title">
+            4. กระดานมอบหมายงานประจำวันแบบดิจิทัล
+            ช่วยให้การจัดและมอบหมายงานง่ายขึ้นและเป็นระบบมากขึ้นหรือไม่
+          </div>
+
+          <select name="editor_systematic">
+            <option value="">-- กรุณาเลือก --</option>
+            <option value="a_lot">ช่วยมาก</option>
+            <option value="moderately">ช่วยพอสมควร</option>
+            <option value="slightly">ช่วยเล็กน้อย</option>
+            <option value="not_at_all">ไม่ช่วย</option>
+            <option value="unsure">ไม่แน่ใจ</option>
+          </select>
+        </div>
+
+        <!-- Editor Q5 -->
+        <div class="question">
+          <div class="question-title">
+            5. กระดานมอบหมายงานประจำวันแบบดิจิทัล
+            ช่วยลดการโทรหรือส่งข้อความเพื่อถามตารางงานหรือไม่
+          </div>
+
+          <select name="editor_reduce_contact">
+            <option value="">-- กรุณาเลือก --</option>
+            <option value="a_lot">ช่วยมาก</option>
+            <option value="moderately">ช่วยพอสมควร</option>
+            <option value="slightly">ช่วยเล็กน้อย</option>
+            <option value="not_at_all">ไม่ช่วย</option>
+            <option value="unsure">ไม่แน่ใจ</option>
+          </select>
+        </div>
+
+        <!-- Editor Q6 -->
+        <div class="question">
+          <div class="question-title">
+            6. โดยรวม
+            ท่านรู้สึกว่ากระดานมอบหมายงานประจำวันแบบดิจิทัลใช้งานง่ายหรือไม่
+          </div>
+
+          <select name="editor_usability">
+            <option value="">-- กรุณาเลือก --</option>
+            <option value="very_easy">ง่ายมาก</option>
+            <option value="fairly_easy">ค่อนข้างง่าย</option>
+            <option value="neutral">ปานกลาง</option>
+            <option value="fairly_difficult">ค่อนข้างยาก</option>
+            <option value="very_difficult">ยากมาก</option>
+          </select>
+        </div>
+
+        <!-- Editor Q7 -->
+        <div class="question">
+          <div class="question-title">
+            7. ในช่วง 2 เดือนที่ผ่านมา
+            ท่านใช้งานกระดานมอบหมายงานในฐานะผู้ดูข้อมูลบ่อยแค่ไหน
+          </div>
+
+          <select name="editor_view_frequency">
+            <option value="">-- กรุณาเลือก --</option>
+            <option value="daily">ทุกวัน</option>
+            <option value="3-4_per_week">3–4 วันต่อสัปดาห์</option>
+            <option value="1-2_per_week">1–2 วันต่อสัปดาห์</option>
+            <option value="less_than_weekly">น้อยกว่า 1 ครั้งต่อสัปดาห์</option>
+            <option value="editor_only">
+              ไม่ได้ใช้งานในฐานะผู้ดูข้อมูล นอกจากจัดกระดาน
+            </option>
+          </select>
+        </div>
+
+        <!-- Editor Q8 -->
+        <div class="question">
+          <div class="question-title">
+            8. โดยรวม
+            ท่านคิดว่าควรใช้งานกระดานมอบหมายงานประจำวันแบบดิจิทัลต่อไปหรือไม่
+          </div>
+
+          <select name="editor_continue">
+            <option value="">-- กรุณาเลือก --</option>
+
+            <option value="continue_as_is">
+              ควรใช้ต่อ ระบบปัจจุบันเหมาะสมดีแล้ว
+            </option>
+
+            <option value="continue_minor_improvement">
+              ควรใช้ต่อ แต่ควรปรับปรุงเล็กน้อย
+            </option>
+
+            <option value="continue_major_improvement">
+              ควรใช้ต่อ แต่ควรปรับปรุงอย่างมาก
+            </option>
+
+            <option value="return_old_method">
+              ไม่ควรใช้ต่อ และควรกลับไปใช้วิธีการมอบหมายงานแบบเดิม
+            </option>
+
+            <option value="use_other_method">
+              ไม่ควรใช้ต่อ แต่ควรหาวิธีการอื่นแทนระบบเดิม
+            </option>
+          </select>
+        </div>
+
+        <!-- Editor Q9 -->
+        <div class="question">
+          <div class="question-title">
+            9. โดยรวม
+            ท่านพึงพอใจกับกระดานมอบหมายงานประจำวันแบบดิจิทัลในระดับใด
+          </div>
+
+          <select name="editor_satisfaction">
+            <option value="">-- กรุณาเลือก --</option>
+            <option value="very_good">ดีมาก</option>
+            <option value="good">ดี</option>
+            <option value="moderate">ปานกลาง</option>
+            <option value="low">น้อย</option>
+            <option value="very_low">น้อยมาก</option>
+          </select>
+        </div>
+
+        <!-- Editor Q10 -->
+        <div class="question">
+          <div class="question-title">
+            10. ข้อเสนอแนะเพิ่มเติม
+          </div>
+
+          <div class="hint">
+            เช่น ปัญหาที่พบ สิ่งที่อยากให้ปรับปรุง
+            หรือฟังก์ชันที่อยากให้เพิ่ม
+          </div>
+
+          <textarea
+            name="editor_feedback"
+            placeholder="ข้อเสนอแนะเพิ่มเติม (ถ้ามี)"
+          ></textarea>
+        </div>
+
+      </div>
+
+
+      <!-- ================= SUBMIT ================= -->
+
+      <button type="submit" id="submitButton">
+        ส่งแบบประเมิน
+      </button>
+
+    </form>
+  </div>
+
+
+  <script>
+  const form = document.getElementById("assignmeForm");
+  const roleInputs = document.querySelectorAll('input[name="role"]');
+
+  const viewerSection = document.getElementById("viewerSection");
+  const editorSection = document.getElementById("editorSection");
+
+  const submitButton = document.getElementById("submitButton");
+
+  // Google Apps Script Web App
+  const WEB_APP_URL =
+    "https://script.google.com/macros/s/AKfycbyGQJyAnJg2yef_3aB7id4cq2nGnBxuQhNVeKqAJKX93a7lBfigXLHvfNH0P0JbjwhK3g/exec";
+
+  // =========================
+  // Show section by role
+  // =========================
+  function showSection(role) {
+
+    viewerSection.classList.remove("active");
+    editorSection.classList.remove("active");
+
+    if (role === "viewer") {
+      viewerSection.classList.add("active");
+    }
+
+    if (role === "editor") {
+      editorSection.classList.add("active");
+    }
+  }
+
+
+  roleInputs.forEach((input) => {
+    input.addEventListener("change", function () {
+      showSection(this.value);
+    });
+  });
+
+
+  // =========================
+  // Submit form
+  // =========================
+  form.addEventListener("submit", async function (event) {
+
+    event.preventDefault();
+
+    const selectedRole =
+      document.querySelector('input[name="role"]:checked');
+
+    if (!selectedRole) {
+      alert("กรุณาเลือกลักษณะการใช้งาน");
+      return;
+    }
+
+
+    // Convert form data -> object
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+
+    // Disable button while sending
+    submitButton.disabled = true;
+    submitButton.textContent = "กำลังส่งข้อมูล...";
+
+
+    try {
+
+      const response = await fetch(WEB_APP_URL, {
+        method: "POST",
+        body: JSON.stringify(data)
+      });
+
+
+      const result = await response.json();
+
+
+      if (result.success) {
+
+        alert("ส่งแบบประเมินเรียบร้อยแล้ว ขอบคุณสำหรับความคิดเห็นของท่าน");
+
+        // Reset form
+        form.reset();
+
+        // Hide both sections
+        viewerSection.classList.remove("active");
+        editorSection.classList.remove("active");
+
+      } else {
+
+        console.error(result);
+
+        alert(
+          "ไม่สามารถบันทึกข้อมูลได้ กรุณาลองใหม่อีกครั้ง"
+        );
+      }
+
+
+    } catch (error) {
+
+      console.error("Submit error:", error);
+
+      alert(
+        "เกิดข้อผิดพลาดในการส่งข้อมูล กรุณาลองใหม่อีกครั้ง"
+      );
+
+    } finally {
+
+      submitButton.disabled = false;
+      submitButton.textContent = "ส่งแบบประเมิน";
+
+    }
+
+  });
+</script>
+
+</body>
+</html>
